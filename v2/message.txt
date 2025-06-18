@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <unistd.h>   // Pour la fonction usleep()
+#include <stdlib.h>   // Pour la fonction system("clear")
+#include <termios.h>  // Pour configurer les paramètres du terminal
+#include <fcntl.h>    // Pour rendre l'entrée non bloquante
+
+#define LARGEUR 100      // Largeur maximale du terminal
+#define HAUTEUR 50      // Hauteur maximale du terminal
+#define TAILLE_SERPENT 9 // Taille du serpent (4 'X' et 1 'O')
+
+// Fonction pour effacer l'écran
+void effacerEcran() {
+    system("clear"); // Utilise la commande shell "clear" pour effacer l'écran du terminal
+}
+
+// Fonction pour afficher le serpent à une position donnée
+void afficherSerpent(int positionX, int positionY) {
+    // Affiche des lignes vides avant la position Y (pour positionner le serpent verticalement)
+    for (int i = 0; i < positionY; i++) {
+        printf("\n");
+    }
+
+    // Affiche des espaces avant la position X (pour positionner le serpent horizontalement)
+    for (int i = 0; i < positionX; i++) {
+        printf(" ");
+    }
+
+    // Affiche le serpent (4 'X' pour le corps et une 'O' pour la tête)
+    for (int i = 0; i < TAILLE_SERPENT - 1; i++) {
+        printf("X");
+    }
+    printf("O\n"); // Affiche la tête du serpent
+}
+
+// Fonction pour vérifier si une touche a été appuyée sans bloquer l'exécution du programme
+int kbhit(void) {
+    struct termios oldt, newt;  // Structures pour stocker les paramètres du terminal
+    int ch;                     // Variable pour stocker la touche appuyée
+    int oldf;                   // Variable pour stocker les flags du fichier (entrée standard)
+
+    // Récupérer les paramètres actuels du terminal
+    tcgetattr(STDIN_FILENO, &oldt);
+    // Copier les paramètres actuels dans une nouvelle structure pour modification
+    newt = oldt;
+
+    // Désactiver le mode canonique (lecture ligne par ligne) et l'écho des caractères
+    newt.c_lflag &= ~(ICANON | ECHO);
+    // Appliquer les nouveaux paramètres immédiatement
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+    // Récupérer les flags actuels de l'entrée standard (clavier)
+    oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
+    // Activer le mode non bloquant (lire sans attendre une entrée)
+    fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
+
+    // Lire une touche si elle est appuyée
+    ch = getchar();
+
+    // Restaurer les anciens paramètres du terminal
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    // Restaurer les anciens flags de l'entrée standard
+    fcntl(STDIN_FILENO, F_SETFL, oldf);
+
+    // Si une touche a été appuyée, renvoyer son code ASCII
+    if (ch != EOF) {
+        ungetc(ch, stdin);  // Remettre la touche dans le buffer d'entrée
+        return ch;          // Retourner la touche appuyée
+    }
+
+    return 0;  // Retourner 0 si aucune touche n'a été appuyée
+}
+
+int main() {
+    int positionX, positionY;  // Position initiale du serpent
+    char touche;               // Variable pour stocker la touche appuyée
+
+    // Demander à l'utilisateur de saisir la position initiale
+    printf("Entrez la position initiale du serpent (x entre 0 et %d, y entre 0 et %d) : ", LARGEUR - TAILLE_SERPENT, HAUTEUR);
+    scanf("%d %d", &positionX, &positionY);
+
+    // S'assurer que la position est dans les limites du terminal
+    if (positionX < 0 || positionX > LARGEUR - TAILLE_SERPENT || positionY < 0 || positionY > HAUTEUR) {
+        printf("Position invalide. Réessayez avec des valeurs correctes.\n");
+        return 1;  // Terminer le programme en cas de position invalide
+    }
+
+    // Boucle principale pour le déplacement du serpent
+    while (1) {
+        effacerEcran();                     // Efface l'écran
+        afficherSerpent(positionX, positionY); // Affiche le serpent à sa nouvelle position
+        usleep(200000);                     // Temporisation de 200 millisecondes (ralentit le déplacement)
+
+        // Déplacer le serpent vers la droite
+        positionX++;
+
+        // Réinitialise la position si le serpent atteint la fin de l'écran
+        if (positionX > LARGEUR - TAILLE_SERPENT) {
+            positionX = 0;  // Remettre la position du serpent à 0 (redémarrer à gauche)
+        }
+
+        // Vérifier si une touche a été appuyée
+        touche = kbhit();
+        // Si la touche 'q' est appuyée, on arrête le programme
+        if (touche == 'q') {
+            break;  // Sort de la boucle et termine le programme
+        }
+    }
+
+    return 0;  // Fin du programme
+}

@@ -1,0 +1,473 @@
+\doxysection{Référence du fichier version4.\+c}
+\hypertarget{version4_8c}{}\label{version4_8c}\index{version4.c@{version4.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$termios.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{version4_8c_a2ae3503710b411f86cfd68bea0e4d776}{ANNEAUX}}~\textquotesingle{}X\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_a7cb924f3da4013624784dbc36644083f}{ARRET}}~\textquotesingle{}a\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_abd7bcdd3b14eec4414469f88f2bd8f12}{BAS}}~\textquotesingle{}s\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_a07e0cc1a1bf2bbb7d01cf33ba02ae3af}{BORDURE}}~\textquotesingle{}\#\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_af625d3f3bc022848a558f2b18def5b15}{DROITE}}~\textquotesingle{}d\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_af07f8bf974fdf76afd17f2b97ac15a22}{GAUCHE}}~\textquotesingle{}q\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_acd0f9b88c35112b35f67d3cde4b2365c}{HAUT}}~\textquotesingle{}z\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}~40
+\item 
+\#define \mbox{\hyperlink{version4_8c_af0470b611c55b6cc3f1195d6299fea61}{INIT\+\_\+X}}~40
+\item 
+\#define \mbox{\hyperlink{version4_8c_ac2dc6a97ee580cd653ac9c611bee6b9a}{INIT\+\_\+Y}}~20
+\item 
+\#define \mbox{\hyperlink{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}~80
+\item 
+\#define \mbox{\hyperlink{version4_8c_ae5daf1a03fb7838afbbb15ac1c410cf2}{NB\+\_\+\+PAVES}}~4
+\item 
+\#define \mbox{\hyperlink{version4_8c_a6eb969c6062d9b1ea982bca54c1f1732}{POMME}}~\textquotesingle{}6\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_a54c5fd26e104b80f1453fa53c4075953}{POMMES\+\_\+\+A\+\_\+\+MANGER}}~10
+\item 
+\#define \mbox{\hyperlink{version4_8c_a1a93d5ca9e14674a75b1284175070cdb}{TAILLE\+\_\+\+PAVES}}~5
+\item 
+\#define \mbox{\hyperlink{version4_8c_a1b5fdf8e7ee6e733c92a5b9f035b23a7}{TETE}}~\textquotesingle{}O\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{version4_8c_a3ee479371002a0a258e5c4111cc6e54f}{VIDE}}~\textquotesingle{} \textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{version4_8c_acba1573a94ed488d9e14fdaaf32d9bc4}{afficher}} (int x, int y, char c)
+\begin{DoxyCompactList}\small\item\em Affiche un caractère à une position donnée dans le terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a4d48edcce6f6364c7208f817979e2ceb}{ajouter\+Pomme}} (int taille\+\_\+serpent, char plateau\mbox{[}\mbox{\hyperlink{version4_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}\mbox{]}\mbox{[}\mbox{\hyperlink{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}\mbox{]}, int posX\mbox{[}taille\+\_\+serpent\mbox{]}, int posY\mbox{[}taille\+\_\+serpent\mbox{]})
+\begin{DoxyCompactList}\small\item\em Ajoute une pomme aléatoirement sur le plateau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a5f8dc64047d5574f86adf34e9ac2d26f}{dessiner\+Plateau}} (char plateau\mbox{[}\mbox{\hyperlink{version4_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}\mbox{]}\mbox{[}\mbox{\hyperlink{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Dessine le plateau à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_aadde98bcfdfee49a10a4b6769b6e936f}{dessiner\+Serpent}} (int taille\+\_\+serpent, int posX\mbox{[}taille\+\_\+serpent\mbox{]}, int posY\mbox{[}taille\+\_\+serpent\mbox{]})
+\begin{DoxyCompactList}\small\item\em Dessine le serpent à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a61de8c71dbb95a7120f58064957f9aec}{disable\+Echo}} ()
+\begin{DoxyCompactList}\small\item\em Désactive l\textquotesingle{}écho des touches dans le terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a4c792a17eb955a9e0fa6a033d335fc49}{effacer}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Efface un caractère à une position donnée dans le terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a52acf04e97bb12cf66ce16ef502089f5}{effacer\+Ecran}} ()
+\begin{DoxyCompactList}\small\item\em Efface l\textquotesingle{}écran du terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a2c742eced1c8bd5f0f6d42b13cacc651}{enable\+Echo}} ()
+\begin{DoxyCompactList}\small\item\em Réactive l\textquotesingle{}écho des touches dans le terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_aa294b49bfcc17cf4b490fb020e359851}{goto\+XY}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Déplace le curseur à une position spécifique dans le terminal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{version4_8c_adb06fdeab6f57a434bee5b402ebfc285}{if}} (tcgetattr(STDIN\+\_\+\+FILENO, \&\mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}})==-\/1)
+\item 
+\mbox{\hyperlink{version4_8c_ae7a6bf6b5e904a8a25a2c07c60fa43a5}{if}} (tcsetattr(STDIN\+\_\+\+FILENO, TCSANOW, \&\mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}})==-\/1)
+\item 
+void \mbox{\hyperlink{version4_8c_a84bd60089e4b22994d8e72cf54da9c0e}{init\+Paves}} (int taille\+\_\+serpent, char plateau\mbox{[}\mbox{\hyperlink{version4_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}\mbox{]}\mbox{[}\mbox{\hyperlink{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise les pavés du plateau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_a5db0389c28651b8ab054e1e17bcb6257}{init\+Plateau}} (int taille\+\_\+serpent, char plateau\mbox{[}\mbox{\hyperlink{version4_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}\mbox{]}\mbox{[}\mbox{\hyperlink{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise le plateau de jeu avec des bordures et des cases vides. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{version4_8c_ad5451da499ab9d3907da8dd7060ab677}{kbhit}} ()
+\begin{DoxyCompactList}\small\item\em Vérifie si une touche a été pressée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{version4_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Fonction principale du programme qui exécute la boucle de jeu du snake. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version4_8c_acb72ce54c3c9c52e2be02d9a232fbeff}{progresser}} (int taille\+\_\+serpent, int posX\mbox{[}taille\+\_\+serpent\mbox{]}, int posY\mbox{[}taille\+\_\+serpent\mbox{]}, char direction, char plateau\mbox{[}\mbox{\hyperlink{version4_8c_ad629b1db4ee230dc5de47de843476e72}{HAUTEUR}}\mbox{]}\mbox{[}\mbox{\hyperlink{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}{LARGEUR}}\mbox{]}, bool \texorpdfstring{$\ast$}{*}peut\+Avancer, bool \texorpdfstring{$\ast$}{*}mange\+Une\+Pomme)
+\begin{DoxyCompactList}\small\item\em Fait progresser le serpent selon la direction choisie et vérifie les collisions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{version4_8c_a9c075186b17302758a9715e32f50517b}{verif\+Se\+Touche}} (int taille\+\_\+serpent, int posX\mbox{[}taille\+\_\+serpent\mbox{]}, int posY\mbox{[}taille\+\_\+serpent\mbox{]})
+\begin{DoxyCompactList}\small\item\em Vérifie si le serpent se touche lui-\/même. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}} \mbox{\hyperlink{version4_8c_ae9cb3d658ace04e3d1cdf21339af4d56}{c\+\_\+lflag}} = ECHO
+\item 
+struct termios \mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\Hypertarget{version4_8c_a2ae3503710b411f86cfd68bea0e4d776}\index{version4.c@{version4.c}!ANNEAUX@{ANNEAUX}}
+\index{ANNEAUX@{ANNEAUX}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{ANNEAUX}{ANNEAUX}}
+{\footnotesize\ttfamily \label{version4_8c_a2ae3503710b411f86cfd68bea0e4d776} 
+\#define ANNEAUX~\textquotesingle{}X\textquotesingle{}}
+
+\Hypertarget{version4_8c_a7cb924f3da4013624784dbc36644083f}\index{version4.c@{version4.c}!ARRET@{ARRET}}
+\index{ARRET@{ARRET}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{ARRET}{ARRET}}
+{\footnotesize\ttfamily \label{version4_8c_a7cb924f3da4013624784dbc36644083f} 
+\#define ARRET~\textquotesingle{}a\textquotesingle{}}
+
+\Hypertarget{version4_8c_abd7bcdd3b14eec4414469f88f2bd8f12}\index{version4.c@{version4.c}!BAS@{BAS}}
+\index{BAS@{BAS}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{BAS}{BAS}}
+{\footnotesize\ttfamily \label{version4_8c_abd7bcdd3b14eec4414469f88f2bd8f12} 
+\#define BAS~\textquotesingle{}s\textquotesingle{}}
+
+\Hypertarget{version4_8c_a07e0cc1a1bf2bbb7d01cf33ba02ae3af}\index{version4.c@{version4.c}!BORDURE@{BORDURE}}
+\index{BORDURE@{BORDURE}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{BORDURE}{BORDURE}}
+{\footnotesize\ttfamily \label{version4_8c_a07e0cc1a1bf2bbb7d01cf33ba02ae3af} 
+\#define BORDURE~\textquotesingle{}\#\textquotesingle{}}
+
+\Hypertarget{version4_8c_af625d3f3bc022848a558f2b18def5b15}\index{version4.c@{version4.c}!DROITE@{DROITE}}
+\index{DROITE@{DROITE}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{DROITE}{DROITE}}
+{\footnotesize\ttfamily \label{version4_8c_af625d3f3bc022848a558f2b18def5b15} 
+\#define DROITE~\textquotesingle{}d\textquotesingle{}}
+
+\Hypertarget{version4_8c_af07f8bf974fdf76afd17f2b97ac15a22}\index{version4.c@{version4.c}!GAUCHE@{GAUCHE}}
+\index{GAUCHE@{GAUCHE}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{GAUCHE}{GAUCHE}}
+{\footnotesize\ttfamily \label{version4_8c_af07f8bf974fdf76afd17f2b97ac15a22} 
+\#define GAUCHE~\textquotesingle{}q\textquotesingle{}}
+
+\Hypertarget{version4_8c_acd0f9b88c35112b35f67d3cde4b2365c}\index{version4.c@{version4.c}!HAUT@{HAUT}}
+\index{HAUT@{HAUT}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{HAUT}{HAUT}}
+{\footnotesize\ttfamily \label{version4_8c_acd0f9b88c35112b35f67d3cde4b2365c} 
+\#define HAUT~\textquotesingle{}z\textquotesingle{}}
+
+\Hypertarget{version4_8c_ad629b1db4ee230dc5de47de843476e72}\index{version4.c@{version4.c}!HAUTEUR@{HAUTEUR}}
+\index{HAUTEUR@{HAUTEUR}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{HAUTEUR}{HAUTEUR}}
+{\footnotesize\ttfamily \label{version4_8c_ad629b1db4ee230dc5de47de843476e72} 
+\#define HAUTEUR~40}
+
+\Hypertarget{version4_8c_af0470b611c55b6cc3f1195d6299fea61}\index{version4.c@{version4.c}!INIT\_X@{INIT\_X}}
+\index{INIT\_X@{INIT\_X}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{INIT\_X}{INIT\_X}}
+{\footnotesize\ttfamily \label{version4_8c_af0470b611c55b6cc3f1195d6299fea61} 
+\#define INIT\+\_\+X~40}
+
+\Hypertarget{version4_8c_ac2dc6a97ee580cd653ac9c611bee6b9a}\index{version4.c@{version4.c}!INIT\_Y@{INIT\_Y}}
+\index{INIT\_Y@{INIT\_Y}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{INIT\_Y}{INIT\_Y}}
+{\footnotesize\ttfamily \label{version4_8c_ac2dc6a97ee580cd653ac9c611bee6b9a} 
+\#define INIT\+\_\+Y~20}
+
+\Hypertarget{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc}\index{version4.c@{version4.c}!LARGEUR@{LARGEUR}}
+\index{LARGEUR@{LARGEUR}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{LARGEUR}{LARGEUR}}
+{\footnotesize\ttfamily \label{version4_8c_a3d3bf5a2f88b1dba6c6bc13bf889c3cc} 
+\#define LARGEUR~80}
+
+\Hypertarget{version4_8c_ae5daf1a03fb7838afbbb15ac1c410cf2}\index{version4.c@{version4.c}!NB\_PAVES@{NB\_PAVES}}
+\index{NB\_PAVES@{NB\_PAVES}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{NB\_PAVES}{NB\_PAVES}}
+{\footnotesize\ttfamily \label{version4_8c_ae5daf1a03fb7838afbbb15ac1c410cf2} 
+\#define NB\+\_\+\+PAVES~4}
+
+\Hypertarget{version4_8c_a6eb969c6062d9b1ea982bca54c1f1732}\index{version4.c@{version4.c}!POMME@{POMME}}
+\index{POMME@{POMME}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{POMME}{POMME}}
+{\footnotesize\ttfamily \label{version4_8c_a6eb969c6062d9b1ea982bca54c1f1732} 
+\#define POMME~\textquotesingle{}6\textquotesingle{}}
+
+\Hypertarget{version4_8c_a54c5fd26e104b80f1453fa53c4075953}\index{version4.c@{version4.c}!POMMES\_A\_MANGER@{POMMES\_A\_MANGER}}
+\index{POMMES\_A\_MANGER@{POMMES\_A\_MANGER}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{POMMES\_A\_MANGER}{POMMES\_A\_MANGER}}
+{\footnotesize\ttfamily \label{version4_8c_a54c5fd26e104b80f1453fa53c4075953} 
+\#define POMMES\+\_\+\+A\+\_\+\+MANGER~10}
+
+\Hypertarget{version4_8c_a1a93d5ca9e14674a75b1284175070cdb}\index{version4.c@{version4.c}!TAILLE\_PAVES@{TAILLE\_PAVES}}
+\index{TAILLE\_PAVES@{TAILLE\_PAVES}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{TAILLE\_PAVES}{TAILLE\_PAVES}}
+{\footnotesize\ttfamily \label{version4_8c_a1a93d5ca9e14674a75b1284175070cdb} 
+\#define TAILLE\+\_\+\+PAVES~5}
+
+\Hypertarget{version4_8c_a1b5fdf8e7ee6e733c92a5b9f035b23a7}\index{version4.c@{version4.c}!TETE@{TETE}}
+\index{TETE@{TETE}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{TETE}{TETE}}
+{\footnotesize\ttfamily \label{version4_8c_a1b5fdf8e7ee6e733c92a5b9f035b23a7} 
+\#define TETE~\textquotesingle{}O\textquotesingle{}}
+
+\Hypertarget{version4_8c_a3ee479371002a0a258e5c4111cc6e54f}\index{version4.c@{version4.c}!VIDE@{VIDE}}
+\index{VIDE@{VIDE}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{VIDE}{VIDE}}
+{\footnotesize\ttfamily \label{version4_8c_a3ee479371002a0a258e5c4111cc6e54f} 
+\#define VIDE~\textquotesingle{} \textquotesingle{}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{version4_8c_acba1573a94ed488d9e14fdaaf32d9bc4}\index{version4.c@{version4.c}!afficher@{afficher}}
+\index{afficher@{afficher}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{afficher()}{afficher()}}
+{\footnotesize\ttfamily \label{version4_8c_acba1573a94ed488d9e14fdaaf32d9bc4} 
+void afficher (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{char}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Affiche un caractère à une position donnée dans le terminal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & La position X où afficher le caractère. \\
+\hline
+{\em y} & La position Y où afficher le caractère. \\
+\hline
+{\em c} & Le caractère à afficher. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_a4d48edcce6f6364c7208f817979e2ceb}\index{version4.c@{version4.c}!ajouterPomme@{ajouterPomme}}
+\index{ajouterPomme@{ajouterPomme}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{ajouterPomme()}{ajouterPomme()}}
+{\footnotesize\ttfamily \label{version4_8c_a4d48edcce6f6364c7208f817979e2ceb} 
+void ajouter\+Pomme (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+serpent}{, }\item[{char}]{plateau}{\mbox{[}\+HAUTEUR\mbox{]}\mbox{[}\+LARGEUR\mbox{]}, }\item[{int}]{posX}{\mbox{[}taille\+\_\+serpent\mbox{]}, }\item[{int}]{posY}{\mbox{[}taille\+\_\+serpent\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Ajoute une pomme aléatoirement sur le plateau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+serpent} & La taille du serpent. \\
+\hline
+{\em plateau} & Le plateau de jeu. \\
+\hline
+{\em posX} & Le tableau des positions X du serpent. \\
+\hline
+{\em posY} & Le tableau des positions Y du serpent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_a5f8dc64047d5574f86adf34e9ac2d26f}\index{version4.c@{version4.c}!dessinerPlateau@{dessinerPlateau}}
+\index{dessinerPlateau@{dessinerPlateau}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{dessinerPlateau()}{dessinerPlateau()}}
+{\footnotesize\ttfamily \label{version4_8c_a5f8dc64047d5574f86adf34e9ac2d26f} 
+void dessiner\+Plateau (\begin{DoxyParamCaption}\item[{char}]{plateau}{\mbox{[}\+HAUTEUR\mbox{]}\mbox{[}\+LARGEUR\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Dessine le plateau à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em plateau} & Le plateau à dessiner. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_aadde98bcfdfee49a10a4b6769b6e936f}\index{version4.c@{version4.c}!dessinerSerpent@{dessinerSerpent}}
+\index{dessinerSerpent@{dessinerSerpent}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{dessinerSerpent()}{dessinerSerpent()}}
+{\footnotesize\ttfamily \label{version4_8c_aadde98bcfdfee49a10a4b6769b6e936f} 
+void dessiner\+Serpent (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+serpent}{, }\item[{int}]{posX}{\mbox{[}taille\+\_\+serpent\mbox{]}, }\item[{int}]{posY}{\mbox{[}taille\+\_\+serpent\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Dessine le serpent à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+serpent} & La taille du serpent. \\
+\hline
+{\em posX} & Le tableau des positions X du serpent. \\
+\hline
+{\em posY} & Le tableau des positions Y du serpent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_a61de8c71dbb95a7120f58064957f9aec}\index{version4.c@{version4.c}!disableEcho@{disableEcho}}
+\index{disableEcho@{disableEcho}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{disableEcho()}{disableEcho()}}
+{\footnotesize\ttfamily \label{version4_8c_a61de8c71dbb95a7120f58064957f9aec} 
+void disable\+Echo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Désactive l\textquotesingle{}écho des touches dans le terminal. 
+
+\Hypertarget{version4_8c_a4c792a17eb955a9e0fa6a033d335fc49}\index{version4.c@{version4.c}!effacer@{effacer}}
+\index{effacer@{effacer}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{effacer()}{effacer()}}
+{\footnotesize\ttfamily \label{version4_8c_a4c792a17eb955a9e0fa6a033d335fc49} 
+void effacer (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Efface un caractère à une position donnée dans le terminal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & La position X à effacer. \\
+\hline
+{\em y} & La position Y à effacer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_a52acf04e97bb12cf66ce16ef502089f5}\index{version4.c@{version4.c}!effacerEcran@{effacerEcran}}
+\index{effacerEcran@{effacerEcran}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{effacerEcran()}{effacerEcran()}}
+{\footnotesize\ttfamily \label{version4_8c_a52acf04e97bb12cf66ce16ef502089f5} 
+void effacer\+Ecran (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Efface l\textquotesingle{}écran du terminal. 
+
+\Hypertarget{version4_8c_a2c742eced1c8bd5f0f6d42b13cacc651}\index{version4.c@{version4.c}!enableEcho@{enableEcho}}
+\index{enableEcho@{enableEcho}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{enableEcho()}{enableEcho()}}
+{\footnotesize\ttfamily \label{version4_8c_a2c742eced1c8bd5f0f6d42b13cacc651} 
+void enable\+Echo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Réactive l\textquotesingle{}écho des touches dans le terminal. 
+
+\Hypertarget{version4_8c_aa294b49bfcc17cf4b490fb020e359851}\index{version4.c@{version4.c}!gotoXY@{gotoXY}}
+\index{gotoXY@{gotoXY}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{gotoXY()}{gotoXY()}}
+{\footnotesize\ttfamily \label{version4_8c_aa294b49bfcc17cf4b490fb020e359851} 
+void goto\+XY (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Déplace le curseur à une position spécifique dans le terminal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & La position X à laquelle déplacer le curseur. \\
+\hline
+{\em y} & La position Y à laquelle déplacer le curseur. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_adb06fdeab6f57a434bee5b402ebfc285}\index{version4.c@{version4.c}!if@{if}}
+\index{if@{if}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{version4_8c_adb06fdeab6f57a434bee5b402ebfc285} 
+if (\begin{DoxyParamCaption}\item[{tcgetattr(STDIN\+\_\+\+FILENO, \&\mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}})}]{}{ = {\ttfamily =~-\/1}}\end{DoxyParamCaption})}
+
+\Hypertarget{version4_8c_ae7a6bf6b5e904a8a25a2c07c60fa43a5}\index{version4.c@{version4.c}!if@{if}}
+\index{if@{if}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{version4_8c_ae7a6bf6b5e904a8a25a2c07c60fa43a5} 
+if (\begin{DoxyParamCaption}\item[{tcsetattr(STDIN\+\_\+\+FILENO, TCSANOW, \&\mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}})}]{}{ = {\ttfamily =~-\/1}}\end{DoxyParamCaption})}
+
+\Hypertarget{version4_8c_a84bd60089e4b22994d8e72cf54da9c0e}\index{version4.c@{version4.c}!initPaves@{initPaves}}
+\index{initPaves@{initPaves}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{initPaves()}{initPaves()}}
+{\footnotesize\ttfamily \label{version4_8c_a84bd60089e4b22994d8e72cf54da9c0e} 
+void init\+Paves (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+serpent}{, }\item[{char}]{plateau}{\mbox{[}\+HAUTEUR\mbox{]}\mbox{[}\+LARGEUR\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Initialise les pavés du plateau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+serpent} & La taille du serpent. \\
+\hline
+{\em plateau} & Le plateau de jeu avec les pavés à ajouter. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_a5db0389c28651b8ab054e1e17bcb6257}\index{version4.c@{version4.c}!initPlateau@{initPlateau}}
+\index{initPlateau@{initPlateau}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{initPlateau()}{initPlateau()}}
+{\footnotesize\ttfamily \label{version4_8c_a5db0389c28651b8ab054e1e17bcb6257} 
+void init\+Plateau (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+serpent}{, }\item[{char}]{plateau}{\mbox{[}\+HAUTEUR\mbox{]}\mbox{[}\+LARGEUR\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Initialise le plateau de jeu avec des bordures et des cases vides. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+serpent} & La taille initiale du serpent. \\
+\hline
+{\em plateau} & Le plateau de jeu à initialiser. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_ad5451da499ab9d3907da8dd7060ab677}\index{version4.c@{version4.c}!kbhit@{kbhit}}
+\index{kbhit@{kbhit}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{kbhit()}{kbhit()}}
+{\footnotesize\ttfamily \label{version4_8c_ad5451da499ab9d3907da8dd7060ab677} 
+int kbhit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Vérifie si une touche a été pressée. 
+
+\begin{DoxyReturn}{Renvoie}
+1 si une touche a été pressée, 0 sinon. 
+\end{DoxyReturn}
+\Hypertarget{version4_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{version4.c@{version4.c}!main@{main}}
+\index{main@{main}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{version4_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Fonction principale du programme qui exécute la boucle de jeu du snake. 
+
+\begin{DoxyReturn}{Renvoie}
+EXIT\+\_\+\+SUCCESS si le programme s\textquotesingle{}exécute correctement. 
+\end{DoxyReturn}
+\Hypertarget{version4_8c_acb72ce54c3c9c52e2be02d9a232fbeff}\index{version4.c@{version4.c}!progresser@{progresser}}
+\index{progresser@{progresser}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{progresser()}{progresser()}}
+{\footnotesize\ttfamily \label{version4_8c_acb72ce54c3c9c52e2be02d9a232fbeff} 
+void progresser (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+serpent}{, }\item[{int}]{posX}{\mbox{[}taille\+\_\+serpent\mbox{]}, }\item[{int}]{posY}{\mbox{[}taille\+\_\+serpent\mbox{]}, }\item[{char}]{direction}{, }\item[{char}]{plateau}{\mbox{[}\+HAUTEUR\mbox{]}\mbox{[}\+LARGEUR\mbox{]}, }\item[{bool \texorpdfstring{$\ast$}{*}}]{peut\+Avancer}{, }\item[{bool \texorpdfstring{$\ast$}{*}}]{mange\+Une\+Pomme}{}\end{DoxyParamCaption})}
+
+
+
+Fait progresser le serpent selon la direction choisie et vérifie les collisions. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+serpent} & La taille du serpent. \\
+\hline
+{\em posX} & Le tableau des positions X du serpent. \\
+\hline
+{\em posY} & Le tableau des positions Y du serpent. \\
+\hline
+{\em direction} & La direction actuelle du serpent. \\
+\hline
+{\em plateau} & Le plateau de jeu. \\
+\hline
+{\em peut\+Avancer} & Un pointeur vers un booléen qui indique si le serpent peut continuer à avancer. \\
+\hline
+{\em mange\+Une\+Pomme} & Un pointeur vers un booléen qui indique si le serpent a mangé une pomme. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{version4_8c_a9c075186b17302758a9715e32f50517b}\index{version4.c@{version4.c}!verifSeTouche@{verifSeTouche}}
+\index{verifSeTouche@{verifSeTouche}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{verifSeTouche()}{verifSeTouche()}}
+{\footnotesize\ttfamily \label{version4_8c_a9c075186b17302758a9715e32f50517b} 
+bool verif\+Se\+Touche (\begin{DoxyParamCaption}\item[{int}]{taille\+\_\+serpent}{, }\item[{int}]{posX}{\mbox{[}taille\+\_\+serpent\mbox{]}, }\item[{int}]{posY}{\mbox{[}taille\+\_\+serpent\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Vérifie si le serpent se touche lui-\/même. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em taille\+\_\+serpent} & La taille du serpent. \\
+\hline
+{\em posX} & Le tableau des positions X du serpent. \\
+\hline
+{\em posY} & Le tableau des positions Y du serpent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si le serpent se touche lui-\/même, false sinon. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{version4_8c_ae9cb3d658ace04e3d1cdf21339af4d56}\index{version4.c@{version4.c}!c\_lflag@{c\_lflag}}
+\index{c\_lflag@{c\_lflag}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{c\_lflag}{c\_lflag}}
+{\footnotesize\ttfamily \label{version4_8c_ae9cb3d658ace04e3d1cdf21339af4d56} 
+\mbox{\hyperlink{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}{tty}} c\+\_\+lflag = ECHO}
+
+\Hypertarget{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13}\index{version4.c@{version4.c}!tty@{tty}}
+\index{tty@{tty}!version4.c@{version4.c}}
+\doxysubsubsection{\texorpdfstring{tty}{tty}}
+{\footnotesize\ttfamily \label{version4_8c_a90da4c2f41448c9dd7185c4bcaccdd13} 
+struct termios tty}
+

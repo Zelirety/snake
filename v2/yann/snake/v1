@@ -1,0 +1,21 @@
+#include <unistd.h>;
+#include <termios.h>;
+#include <fcntl.h>;
+#include <stdio.h>;
+#include <stdlib.h>;
+#define TAILLE 40;
+
+int tab[TAILLE];
+int usleep(int 1000);
+
+void afficher(int x, int y, char c);
+void effacer(int x, int y);
+
+
+int main() {
+
+
+
+gotoXY();
+print()
+}
